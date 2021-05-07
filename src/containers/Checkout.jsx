@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 import AppContext from '../context/AppContext'
 import '../styles/components/Checkout.css'
 
@@ -18,7 +19,22 @@ const Checkout = () => {
   }
 
   return (
-    <div className="Checkout">
+    <>
+    <Helmet>
+      <title>Lista de Pedidos - PlatziConf Merch</title>
+      <meta name="twitter:card" content="summary_large_image"/>
+      <meta name="twitter:site" content="@LavandaMarlon"/>
+      <meta name="twitter:creator" content="@LavandaMarlon"/>
+      <meta name="twitter:title" content="Platzi Conf Store"/>
+      <meta name="twitter:description" content="Platzi Conf Store"/>
+      <meta
+        name="twitter:image"
+        content="https://marlonlavanda.com/img/foto-obout.jpg"
+      />
+      <meta property="og:title" content="Platzi Conf Store"/>
+      <meta property="og:description" content="Platzi Conf Store"/>
+  </Helmet>
+      <div className="Checkout">
       <div className="Checkout-content">
         { cart.length > 0 ? <h3>Lista de pedidos:</h3> : <h3>Sin pedidos...</h3> }
         { cart.map((item) => (
@@ -45,6 +61,7 @@ const Checkout = () => {
         </div>
       )}
     </div>
+    </>
   )
 }
 export default Checkout
